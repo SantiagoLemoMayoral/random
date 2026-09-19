@@ -1,0 +1,7 @@
+server:
+  retention: 15d
+
+prometheusSpec:
+  scrapeInterval: 15s
+
+  serviceMonitorSelectorNilUsesHelmValues: false
