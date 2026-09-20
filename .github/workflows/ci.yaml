@@ -1,13 +1,7 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - "helm/helpdesk/values-dev.yaml"
-
-  pull_request:
-    branches: [main]
+ 
 
 permissions:
   contents: read

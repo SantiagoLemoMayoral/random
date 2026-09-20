@@ -1,17 +1,6 @@
 name: Terraform
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - "terraform/**"
-
-  push:
-    branches: [main]
-    paths:
-      - "terraform/**"
-
-  workflow_dispatch:
 
 permissions:
   contents: read
