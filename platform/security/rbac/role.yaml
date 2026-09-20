@@ -1,0 +1,10 @@
+# role.yaml
+kind: Role
+metadata:
+  name: config-reader
+  namespace: prod
+
+rules:
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["get", "list"]

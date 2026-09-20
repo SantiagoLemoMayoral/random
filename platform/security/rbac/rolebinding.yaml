@@ -1,0 +1,15 @@
+# rolebinding.yaml
+kind: RoleBinding
+metadata:
+  name: helpdesk-config-reader
+  namespace: prod
+
+subjects:
+  - kind: ServiceAccount
+    name: helpdesk-app
+    namespace: prod
+
+roleRef:
+  kind: Role
+  name: config-reader
+  apiGroup: rbac.authorization.k8s.io

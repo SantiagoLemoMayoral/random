@@ -1,9 +1,0 @@
-datasources:
-  prometheus:
-    url: http://prometheus-server
-
-  loki:
-    url: http://loki:3100
-
-  tempo:
-    url: http://tempo:3200
