@@ -1,0 +1,19 @@
+metadata:
+  name: random-prod
+
+spec:
+  project: random
+
+  source:
+    repoURL: https://github.com/SantiagoLemoMayoral/random.git
+    targetRevision: main
+    path: helm/random
+
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-prod.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: random-prod

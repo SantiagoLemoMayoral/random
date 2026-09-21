@@ -1,30 +1,30 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: AppProject
 
 metadata:
   name: random
   namespace: argocd
 
 spec:
-  project: default
+  description: Argo CD project for the random application
 
-  source:
-    repoURL: https://github.com/SantiagoLemoMayoral/random.git
-    targetRevision: main
-    path: helm/random
+  sourceRepos:
+    - https://github.com/SantiagoLemoMayoral/random.git
 
-    helm:
-      valueFiles:
-        - values.yaml
+  destinations:
+    - namespace: random-dev
+      server: https://kubernetes.default.svc
 
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: random
+    - namespace: random-staging
+      server: https://kubernetes.default.svc
 
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    - namespace: random-prod
+      server: https://kubernetes.default.svc
 
-    syncOptions:
-      - CreateNamespace=true
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
